@@ -1,53 +1,64 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <!-- Responsive Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Title -->
-    <title>Digital Khushi | Digital Marketing, SEO & Online Growth</title>
+    <title>Digital Khushi | Frontend Development, SEO & Digital Solutions</title>
 
-    <!-- Meta Description -->
-    <meta name="description" content="Digital Khushi provides SEO, digital marketing, content creation and online growth solutions to help businesses build a stronger digital presence and reach the right audience.">
+    <meta name="description"
+        content="Digital Khushi offers frontend development, SEO, digital marketing, content creation and modern web solutions to help businesses build a powerful online presence.">
 
-    <!-- Meta Keywords -->
-    <meta name="keywords" content="Digital Khushi, digital marketing, SEO services, SEO expert, digital marketing services, content marketing, online marketing, website SEO, social media marketing, digital growth">
+    <meta name="keywords"
+        content="Digital Khushi, frontend developer, frontend development, web developer, SEO services, digital marketing, website development, content creation, web design, digital solutions">
 
-    <!-- Search Engine Instructions -->
     <meta name="robots" content="index, follow">
 
-    <!-- Canonical URL - Replace with your actual website URL -->
+    <!-- Replace with your actual domain -->
     <link rel="canonical" href="https://www.yourwebsite.com/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Digital Khushi | Digital Marketing, SEO & Online Growth">
-    <meta property="og:description" content="Explore Digital Khushi for SEO, digital marketing, content creation and online growth solutions.">
+    <meta property="og:title"
+        content="Digital Khushi | Frontend Development & Digital Solutions">
+
+    <meta property="og:description"
+        content="Modern frontend development, SEO and digital solutions by Digital Khushi.">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.yourwebsite.com/">
     <meta property="og:site_name" content="Digital Khushi">
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Digital Khushi",
-        "url": "https://www.yourwebsite.com/",
-        "description": "Digital marketing, SEO, content creation and online growth solutions by Digital Khushi.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.yourwebsite.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        :root {
+            --primary: #7c3aed;
+            --secondary: #ec4899;
+            --blue: #2563eb;
+            --cyan: #06b6d4;
+            --dark: #0f172a;
+            --text: #475569;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --border: rgba(148, 163, 184, 0.2);
+            --shadow: 0 20px 60px rgba(15, 23, 42, 0.10);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -59,104 +70,452 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.7;
-            color: #222;
+            font-family: "Inter", sans-serif;
+            color: var(--text);
             background: #ffffff;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
+        h1,
+        h2,
+        h3 {
+            font-family: "Poppins", sans-serif;
+            color: var(--dark);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+
+        /* =========================
+           PRELOADER
+        ========================= */
+
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity .5s ease, visibility .5s ease;
+        }
+
+        #preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 55px;
+            height: 55px;
+            border: 5px solid rgba(255,255,255,.2);
+            border-top-color: #a855f7;
+            border-right-color: #ec4899;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
         header {
-            background: #111827;
-            padding: 18px 8%;
-            position: sticky;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
+            padding: 18px 0;
+            transition: .3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255,255,255,.9);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 8px 30px rgba(15,23,42,.08);
+            padding: 12px 0;
         }
 
         nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
-            color: #ffffff;
-            font-size: 28px;
-            font-weight: bold;
-            text-decoration: none;
+            font-family: "Poppins", sans-serif;
+            font-size: 25px;
+            font-weight: 800;
+            color: var(--dark);
         }
 
-        nav ul {
-            list-style: none;
+        .logo span {
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary),
+                var(--blue)
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 30px;
+            list-style: none;
         }
 
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 16px;
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 600;
+            position: relative;
         }
 
-        nav ul li a:hover {
-            color: #60a5fa;
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -7px;
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary)
+            );
+            transition: .3s;
         }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-btn {
+            padding: 11px 20px;
+            border-radius: 50px;
+            color: white !important;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            box-shadow: 0 8px 25px rgba(124,58,237,.25);
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            padding: 100px 8%;
-            text-align: center;
-            background: #f3f7ff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(168,85,247,.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 30%,
+                    rgba(236,72,153,.15),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #f8f7ff,
+                    #fdf2f8
+                );
+        }
+
+        .hero-content {
+            max-width: 780px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: rgba(124,58,237,.08);
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 22px;
+            animation: fadeUp .8s ease;
+        }
+
+        .badge i {
+            color: #22c55e;
+            animation: pulse 1.5s infinite;
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #111827;
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+            animation: fadeUp 1s ease .1s both;
         }
 
-        .hero p {
-            max-width: 800px;
-            margin: 0 auto 30px;
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #7c3aed,
+                #ec4899,
+                #2563eb
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
             font-size: 19px;
-            color: #4b5563;
+            max-width: 680px;
+            margin-bottom: 32px;
+            animation: fadeUp 1s ease .2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            animation: fadeUp 1s ease .3s both;
         }
 
         .btn {
-            display: inline-block;
-            background: #2563eb;
-            color: #ffffff;
-            padding: 13px 28px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 14px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: .3s ease;
         }
 
-        .btn:hover {
-            background: #1d4ed8;
+        .btn-primary {
+            color: white;
+            background: linear-gradient(
+                135deg,
+                #7c3aed,
+                #ec4899
+            );
+            box-shadow: 0 15px 35px rgba(124,58,237,.25);
         }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 45px rgba(124,58,237,.35);
+        }
+
+        .btn-outline {
+            color: var(--dark);
+            border: 1px solid #dbe2ea;
+            background: rgba(255,255,255,.7);
+        }
+
+        .btn-outline:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+
+        /* =========================
+           FLOATING SHAPES
+        ========================= */
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(1px);
+            opacity: .6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-one {
+            width: 100px;
+            height: 100px;
+            background: #c084fc;
+            top: 20%;
+            right: 12%;
+        }
+
+        .shape-two {
+            width: 65px;
+            height: 65px;
+            background: #f9a8d4;
+            bottom: 20%;
+            right: 30%;
+            animation-delay: 1s;
+        }
+
+        .shape-three {
+            width: 45px;
+            height: 45px;
+            background: #67e8f9;
+            top: 35%;
+            right: 5%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
 
         section {
-            padding: 75px 8%;
+            padding: 100px 0;
         }
 
-        .section-title {
+        .section-heading {
             text-align: center;
-            font-size: 34px;
+            max-width: 720px;
+            margin: 0 auto 55px;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(32px,5vw,48px);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #ffffff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 42px;
             margin-bottom: 20px;
-            color: #111827;
         }
 
-        .section-intro {
-            max-width: 800px;
-            margin: 0 auto 45px;
+        .about-text p {
+            margin-bottom: 18px;
+        }
+
+        .about-box {
+            position: relative;
+            min-height: 400px;
+            border-radius: 30px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #ec4899,
+                    #2563eb
+                );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-box::before {
+            content: "";
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.18);
+            position: absolute;
+            top: -60px;
+            right: -50px;
+        }
+
+        .about-card {
+            width: 75%;
+            padding: 35px;
+            border-radius: 25px;
+            background: rgba(255,255,255,.15);
+            backdrop-filter: blur(15px);
+            color: white;
             text-align: center;
-            color: #555;
+            border: 1px solid rgba(255,255,255,.25);
         }
 
-        .about-content {
-            max-width: 900px;
-            margin: auto;
+        .about-card i {
+            font-size: 60px;
+            margin-bottom: 20px;
         }
+
+        .about-card h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================= */
 
         .services {
             background: #f8fafc;
@@ -164,306 +523,509 @@
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3,1fr);
             gap: 25px;
         }
 
         .service-card {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid #e5e7eb;
+            padding: 32px;
+            border-radius: 22px;
+            background: white;
+            border: 1px solid var(--border);
+            transition: .4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary),
+                var(--cyan)
+            );
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: .4s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            font-size: 25px;
+            color: white;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            margin-bottom: 22px;
         }
 
         .service-card h3 {
             margin-bottom: 12px;
-            color: #1d4ed8;
         }
 
-        .service-card p {
-            color: #555;
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
         }
 
-        .why-us {
-            background: #ffffff;
-        }
-
-        .why-list {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .why-list div {
-            margin-bottom: 20px;
-        }
-
-        .why-list h3 {
-            margin-bottom: 5px;
-        }
-
-        .cta {
+        .skill {
+            padding: 25px;
             text-align: center;
-            background: #111827;
-            color: #ffffff;
+            border-radius: 18px;
+            background: #fff;
+            border: 1px solid var(--border);
+            transition: .3s;
         }
 
-        .cta h2 {
-            font-size: 36px;
+        .skill:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow);
+        }
+
+        .skill i {
+            font-size: 35px;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .skill h3 {
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           WHY US
+        ========================= */
+
+        .why {
+            background:
+                linear-gradient(
+                    135deg,
+                    #faf5ff,
+                    #fdf2f8,
+                    #eff6ff
+                );
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .why-card {
+            background: rgba(255,255,255,.75);
+            backdrop-filter: blur(15px);
+            padding: 35px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,.8);
+        }
+
+        .why-number {
+            font-size: 40px;
+            font-weight: 800;
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta-section {
+            padding: 100px 0;
+        }
+
+        .cta-box {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 80px 30px;
+            border-radius: 35px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #ec4899,
+                    #2563eb
+                );
+            color: white;
+            box-shadow: 0 30px 70px rgba(124,58,237,.25);
+        }
+
+        .cta-box h2 {
+            color: white;
+            font-size: clamp(34px,5vw,55px);
             margin-bottom: 15px;
         }
 
-        .cta p {
-            margin-bottom: 25px;
-            color: #d1d5db;
+        .cta-box p {
+            max-width: 650px;
+            margin: auto auto 30px;
+            color: rgba(255,255,255,.9);
         }
 
+        .cta-box .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+
+        /* =========================
+           FAQ
+        ========================= */
+
+        .faq-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        details {
+            margin-bottom: 15px;
+            padding: 20px 25px;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            background: white;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        details p {
+            margin-top: 12px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
-            background: #030712;
-            color: #ffffff;
-            text-align: center;
-            padding: 30px 8%;
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 60px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
         }
 
         footer a {
-            color: #60a5fa;
-            text-decoration: none;
+            color: #cbd5e1;
+            transition: .3s;
         }
 
-        @media (max-width: 768px) {
+        footer a:hover {
+            color: #c084fc;
+        }
 
-            nav {
-                flex-direction: column;
-                gap: 15px;
+        .socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .socials a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,.08);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,.1);
+        }
+
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
             }
 
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,100% {
+                transform: scale(1);
             }
 
-            .hero h1 {
-                font-size: 36px;
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width:900px) {
+
+            .service-grid,
+            .why-grid {
+                grid-template-columns: repeat(2,1fr);
             }
 
-            .service-grid {
+            .skills-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .about-grid {
                 grid-template-columns: 1fr;
             }
 
-            section {
-                padding: 55px 6%;
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
+
+
+        @media(max-width:700px) {
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 5%;
+                width: 90%;
+                padding: 25px;
+                background: white;
+                border-radius: 20px;
+                box-shadow: var(--shadow);
+                flex-direction: column;
+                gap: 18px;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-btn {
+                display: none;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .service-grid,
+            .why-grid,
+            .skills-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text h2 {
+                font-size: 34px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
-<header>
-    <nav>
-        <a href="/" class="logo">Digital Khushi</a>
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#why-us">Why Digital Khushi</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<!-- PRELOADER -->
+
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+
+
+<!-- NAVIGATION -->
+
+<header id="navbar">
+
+    <div class="container">
+
+        <nav>
+
+            <a href="#home" class="logo">
+                Digital <span>Khushi</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+            <a href="#contact" class="nav-btn">
+                Let's Talk
+            </a>
+
+            <div class="menu-btn" id="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+        </nav>
+
+    </div>
+
 </header>
 
 
-<!-- HERO SECTION -->
-<main id="home">
+<!-- HERO -->
 
-<section class="hero">
+<main>
 
-    <h1>Digital Khushi – Digital Marketing & SEO Solutions</h1>
+<section class="hero" id="home">
 
-    <p>
-        Welcome to Digital Khushi, a digital platform focused on SEO,
-        digital marketing, content creation and online growth solutions.
-        Build your online presence, connect with your audience and grow
-        your digital visibility with effective strategies.
-    </p>
+    <div class="shape shape-one"></div>
+    <div class="shape shape-two"></div>
+    <div class="shape shape-three"></div>
 
-    <a href="#services" class="btn">Explore Services</a>
+    <div class="container">
 
-</section>
+        <div class="hero-content">
 
+            <div class="badge">
+                <i class="fa-solid fa-circle"></i>
+                Building Digital Experiences
+            </div>
 
-<!-- ABOUT SECTION -->
-<section id="about">
+            <h1>
+                Turning Ideas Into
+                <span class="gradient-text">
+                    Digital Experiences
+                </span>
+            </h1>
 
-    <h2 class="section-title">About Digital Khushi</h2>
-
-    <div class="about-content">
-
-        <p>
-            Digital Khushi is dedicated to helping individuals, creators
-            and businesses improve their online presence through practical
-            digital marketing and SEO strategies. From improving website
-            visibility to creating valuable content, the goal is to build
-            a strong and sustainable digital presence.
-        </p>
-
-        <br>
-
-        <p>
-            In today's competitive online environment, having a website is
-            only the beginning. A successful digital presence requires
-            search engine optimization, quality content, user-friendly
-            websites and consistent online marketing. Digital Khushi brings
-            these areas together to support better online visibility and
-            digital growth.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- SERVICES SECTION -->
-<section id="services" class="services">
-
-    <h2 class="section-title">Digital Marketing & SEO Services</h2>
-
-    <p class="section-intro">
-        Explore digital solutions designed to improve website visibility,
-        reach your target audience and create a stronger online presence.
-    </p>
-
-
-    <div class="service-grid">
-
-        <article class="service-card">
-
-            <h3>SEO Services</h3>
-
-            <p>
-                Improve your website's search engine visibility with
-                keyword research, on-page SEO, technical optimization,
-                content optimization and SEO-friendly website structure.
+            <p class="hero-description">
+                Hi, I'm Khushi. Welcome to Digital Khushi — a creative
+                digital space focused on frontend development, SEO,
+                digital marketing and modern web solutions.
             </p>
 
-        </article>
+            <div class="hero-buttons">
 
+                <a href="#services" class="btn btn-primary">
+                    Explore My Services
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
 
-        <article class="service-card">
+                <a href="#about" class="btn btn-outline">
+                    Discover More
+                </a>
 
-            <h3>Digital Marketing</h3>
+            </div>
 
-            <p>
-                Develop an effective online marketing presence through
-                strategic content, search optimization and digital
-                marketing techniques focused on reaching relevant audiences.
-            </p>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <h3>Content Creation</h3>
-
-            <p>
-                Create useful and engaging website content, articles,
-                blogs and promotional copy that communicates your message
-                clearly while supporting your SEO strategy.
-            </p>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <h3>On-Page SEO</h3>
-
-            <p>
-                Optimize page titles, meta descriptions, headings,
-                keywords, internal links, content structure and other
-                important on-page SEO elements.
-            </p>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <h3>Website Optimization</h3>
-
-            <p>
-                Improve the structure and content of your website to create
-                a better experience for visitors and make your pages easier
-                for search engines to understand.
-            </p>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <h3>Online Growth Strategy</h3>
-
-            <p>
-                Build a practical digital growth strategy combining SEO,
-                content and online marketing activities to establish a
-                consistent digital presence.
-            </p>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- WHY US SECTION -->
-<section id="why-us" class="why-us">
-
-    <h2 class="section-title">Why Choose Digital Khushi?</h2>
-
-    <p class="section-intro">
-        Digital Khushi focuses on practical, user-friendly and
-        search-engine-friendly digital solutions.
-    </p>
-
-
-    <div class="why-list">
-
-        <div>
-            <h3>SEO-Focused Approach</h3>
-            <p>
-                Website content and structure can be developed with
-                search visibility and relevant search intent in mind.
-            </p>
-        </div>
-
-
-        <div>
-            <h3>Quality Content</h3>
-            <p>
-                Clear, useful and audience-focused content helps communicate
-                your services while creating value for website visitors.
-            </p>
-        </div>
-
-
-        <div>
-            <h3>Digital Visibility</h3>
-            <p>
-                A consistent online strategy can help businesses and
-                creators establish a stronger digital presence.
-            </p>
-        </div>
-
-
-        <div>
-            <h3>Simple & Practical Strategies</h3>
-            <p>
-                Digital marketing strategies should be understandable,
-                useful and aligned with the goals of the website.
-            </p>
         </div>
 
     </div>
@@ -471,60 +1033,488 @@
 </section>
 
 
-<!-- SEO CONTENT SECTION -->
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <div class="about-grid reveal">
+
+            <div class="about-text">
+
+                <div class="section-tag">
+                    About Digital Khushi
+                </div>
+
+                <h2>
+                    Creative Ideas.
+                    <span class="gradient-text">
+                        Digital Solutions.
+                    </span>
+                </h2>
+
+                <p>
+                    Digital Khushi is a creative digital platform focused
+                    on frontend development, website design, SEO and
+                    digital marketing solutions.
+                </p>
+
+                <p>
+                    The goal is simple — create websites that look
+                    attractive, work smoothly and provide a great
+                    experience for users while following modern
+                    search engine optimization practices.
+                </p>
+
+                <p>
+                    From a clean landing page to an SEO-friendly website,
+                    every digital project can be built with creativity,
+                    usability and performance in mind.
+                </p>
+
+            </div>
+
+
+            <div class="about-box">
+
+                <div class="about-card">
+
+                    <i class="fa-solid fa-code"></i>
+
+                    <h3>
+                        Code • Create • Optimize
+                    </h3>
+
+                    <p>
+                        Designing modern digital experiences
+                        with creativity and technology.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-tag">
+                What I Do
+            </div>
+
+            <h2>
+                Digital Services Designed
+                <span class="gradient-text">
+                    To Make An Impact
+                </span>
+            </h2>
+
+            <p>
+                Explore digital services focused on modern websites,
+                search visibility and a stronger online presence.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                <h3>
+                    Frontend Development
+                </h3>
+
+                <p>
+                    Build responsive, interactive and visually engaging
+                    websites using modern frontend development practices.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <h3>
+                    SEO Optimization
+                </h3>
+
+                <p>
+                    Improve website visibility with keyword research,
+                    on-page SEO, technical optimization and useful content.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+
+                <h3>
+                    Digital Marketing
+                </h3>
+
+                <p>
+                    Develop digital marketing strategies that help brands
+                    connect with relevant audiences online.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-pen-nib"></i>
+                </div>
+
+                <h3>
+                    Content Creation
+                </h3>
+
+                <p>
+                    Create engaging and SEO-friendly website content,
+                    blogs, articles and digital marketing copy.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+
+                <h3>
+                    Website Design
+                </h3>
+
+                <p>
+                    Create clean, responsive and user-friendly interfaces
+                    designed for modern web experiences.
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <h3>
+                    Digital Growth
+                </h3>
+
+                <p>
+                    Combine web development, SEO and content strategies
+                    to create a consistent online presence.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-tag">
+                Skills & Technologies
+            </div>
+
+            <h2>
+                Tools Behind
+                <span class="gradient-text">
+                    Digital Khushi
+                </span>
+            </h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div class="skill reveal">
+                <i class="fa-brands fa-html5"></i>
+                <h3>HTML5</h3>
+            </div>
+
+            <div class="skill reveal">
+                <i class="fa-brands fa-css3-alt"></i>
+                <h3>CSS3</h3>
+            </div>
+
+            <div class="skill reveal">
+                <i class="fa-brands fa-js"></i>
+                <h3>JavaScript</h3>
+            </div>
+
+            <div class="skill reveal">
+                <i class="fa-brands fa-github"></i>
+                <h3>GitHub</h3>
+            </div>
+
+            <div class="skill reveal">
+                <i class="fa-brands fa-react"></i>
+                <h3>React</h3>
+            </div>
+
+            <div class="skill reveal">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <h3>SEO</h3>
+            </div>
+
+            <div class="skill reveal">
+                <i class="fa-solid fa-chart-simple"></i>
+                <h3>Digital Marketing</h3>
+            </div>
+
+            <div class="skill reveal">
+                <i class="fa-solid fa-pen"></i>
+                <h3>Content</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY DIGITAL KHUSHI -->
+
+<section class="why">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-tag">
+                Why Digital Khushi
+            </div>
+
+            <h2>
+                More Than Just
+                <span class="gradient-text">
+                    A Website
+                </span>
+            </h2>
+
+            <p>
+                A good digital experience combines design, technology,
+                usability and visibility.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+            <div class="why-card reveal">
+
+                <div class="why-number">01</div>
+
+                <h3>
+                    Creative Design
+                </h3>
+
+                <p>
+                    Modern layouts, attractive visual elements and
+                    thoughtful user experiences.
+                </p>
+
+            </div>
+
+
+            <div class="why-card reveal">
+
+                <div class="why-number">02</div>
+
+                <h3>
+                    Responsive Development
+                </h3>
+
+                <p>
+                    Websites designed to work smoothly across desktops,
+                    tablets and mobile devices.
+                </p>
+
+            </div>
+
+
+            <div class="why-card reveal">
+
+                <div class="why-number">03</div>
+
+                <h3>
+                    SEO-Friendly Structure
+                </h3>
+
+                <p>
+                    Semantic HTML, structured content and SEO-focused
+                    page architecture.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta-section" id="contact">
+
+    <div class="container">
+
+        <div class="cta-box reveal">
+
+            <h2>
+                Let's Build Something Digital
+            </h2>
+
+            <p>
+                Have an idea for a website, digital project or online
+                presence? Let's turn that idea into a modern digital
+                experience.
+            </p>
+
+            <a href="mailto:your-email@example.com" class="btn">
+                Start a Conversation
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
+
 <section>
 
-    <h2 class="section-title">
-        Build a Stronger Online Presence with Digital Khushi
-    </h2>
+    <div class="container">
 
-    <div class="about-content">
+        <div class="section-heading reveal">
 
-        <p>
-            A strong online presence can help businesses and creators
-            connect with people searching for their products, services
-            or expertise. Search engine optimization plays an important
-            role in making website content easier to discover through
-            search engines.
-        </p>
+            <div class="section-tag">
+                FAQ
+            </div>
 
-        <br>
+            <h2>
+                Frequently Asked
+                <span class="gradient-text">
+                    Questions
+                </span>
+            </h2>
 
-        <p>
-            Digital Khushi focuses on important areas of digital marketing
-            including SEO, content creation, website optimization and
-            online marketing. By combining relevant keywords with useful
-            content and a well-structured website, businesses can create
-            a better experience for both users and search engines.
-        </p>
+        </div>
 
-        <br>
 
-        <p>
-            Whether you are starting a new website, improving existing
-            content or working on your digital visibility, having a clear
-            SEO and content strategy can make your online efforts more
-            organized and effective.
-        </p>
+        <div class="faq-container">
+
+            <details class="reveal">
+
+                <summary>
+                    What is Digital Khushi?
+                </summary>
+
+                <p>
+                    Digital Khushi is a digital platform focused on
+                    frontend development, SEO, digital marketing,
+                    content creation and modern web solutions.
+                </p>
+
+            </details>
+
+
+            <details class="reveal">
+
+                <summary>
+                    What frontend development services are available?
+                </summary>
+
+                <p>
+                    Frontend services can include responsive website
+                    development, modern UI design, interactive interfaces
+                    and SEO-friendly HTML structures.
+                </p>
+
+            </details>
+
+
+            <details class="reveal">
+
+                <summary>
+                    Can you help with website SEO?
+                </summary>
+
+                <p>
+                    Yes. Website SEO can include keyword research,
+                    on-page optimization, content structure, metadata,
+                    internal linking and technical SEO improvements.
+                </p>
+
+            </details>
+
+
+            <details class="reveal">
+
+                <summary>
+                    Are the websites mobile responsive?
+                </summary>
+
+                <p>
+                    Yes. Responsive layouts can be created to provide
+                    a consistent experience across desktop, tablet
+                    and mobile devices.
+                </p>
+
+            </details>
+
+        </div>
 
     </div>
-
-</section>
-
-
-<!-- CTA SECTION -->
-<section class="cta" id="contact">
-
-    <h2>Let's Build Your Digital Presence</h2>
-
-    <p>
-        Explore Digital Khushi for SEO, digital marketing,
-        content creation and online growth solutions.
-    </p>
-
-    <a href="mailto:your-email@example.com" class="btn">
-        Get in Touch
-    </a>
 
 </section>
 
@@ -532,17 +1522,285 @@
 
 
 <!-- FOOTER -->
+
 <footer>
 
-    <p>
-        &copy; 2026 Digital Khushi. All Rights Reserved.
-    </p>
+    <div class="container">
 
-    <p>
-        Digital Marketing | SEO | Content Creation | Online Growth
-    </p>
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>
+                    Digital Khushi
+                </h3>
+
+                <p>
+                    Creating modern digital experiences through
+                    frontend development, SEO, digital marketing
+                    and creative solutions.
+                </p>
+
+                <div class="socials">
+
+                    <a href="#" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#services">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="#skills">Skills</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Services
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <a href="#services">
+                            Frontend Development
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#services">
+                            SEO
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#services">
+                            Digital Marketing
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#services">
+                            Content Creation
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                © 2026 Digital Khushi. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
 
 </footer>
 
+
+<!-- FAQ STRUCTURED DATA -->
+
+<script type="application/ld+json">
+
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What is Digital Khushi?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Digital Khushi is a digital platform focused on frontend development, SEO, digital marketing, content creation and modern web solutions."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What frontend development services are available?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Frontend services can include responsive website development, modern UI design, interactive interfaces and SEO-friendly HTML structures."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can Digital Khushi help with website SEO?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Digital Khushi can provide SEO-focused website optimization including metadata, content structure, internal linking and technical SEO improvements."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are the websites mobile responsive?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Responsive layouts can be created to provide a consistent experience across desktop, tablet and mobile devices."
+            }
+        }
+    ]
+}
+
+</script>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    /* =========================
+       PRELOADER
+    ========================= */
+
+    window.addEventListener("load", function () {
+
+        document
+            .getElementById("preloader")
+            .classList.add("hide");
+
+    });
+
+
+    /* =========================
+       NAVBAR SCROLL
+    ========================= */
+
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+
+    });
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+
+        navLinks.classList.toggle("active");
+
+        const icon = menuBtn.querySelector("i");
+
+        if (navLinks.classList.contains("active")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+        } else {
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+        }
+
+    });
+
+
+    /* Close mobile menu after clicking */
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("active");
+
+            const icon = menuBtn.querySelector("i");
+
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+
+        });
+
+    });
+
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+
+    const observer = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("active");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+
+    document
+        .querySelectorAll(".reveal")
+        .forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+</script>
+
 </body>
 </html>
+```
